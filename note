@@ -1,0 +1,131 @@
+  // execute a query nav bar
+   $navbarModels = new NavbarModels($pdo);
+   $navbarController = new NavbarController($navbarModels);
+   $grandtitre = $navbarController->getGrandtitre();
+   $lien1 = $navbarController->getLien1();
+   $lien2 = $navbarController->getLien2();
+   $lien3 = $navbarController->getLien3();
+   $lien4 = $navbarController->getLien4();
+   $lien5 = $navbarController->getLien5();
+
+   // execute a query projets
+   $projetsModels = new ProjetsModels($pdo);
+   $projetsController = new ProjetsController($projetsModels);
+   $titreprojets = $projetsController->getGrandtitre();
+   $image1 = $projetsController->getimage1();
+   $image2 = $projetsController->getimage2();
+   $image3 = $projetsController->getimage3();
+   $image4 = $projetsController->getimage4();
+   $image5 = $projetsController->getimage5();
+   $image6 = $projetsController->getimage6();
+   $image7 = $projetsController->getimage7();
+   $image8 = $projetsController->getimage8();
+   $bouton1 = $projetsController->getbouton1();
+   $bouton2 = $projetsController->getbouton2();
+   $bouton3 = $projetsController->getbouton3();
+   $bouton4 = $projetsController->getbouton4();
+   $bouton5 = $projetsController->getbouton5();
+   $bouton6 = $projetsController->getbouton6();
+   $bouton7 = $projetsController->getbouton7();
+   $bouton8 = $projetsController->getbouton8();
+   $div1 = $projetsController->getdiv1();
+   $div2 = $projetsController->getdiv2();
+   $div3 = $projetsController->getdiv3();
+   $div4 = $projetsController->getdiv4();
+   $div5 = $projetsController->getdiv5();
+   $div6 = $projetsController->getdiv6();
+   $div7 = $projetsController->getdiv7();
+   $div8 = $projetsController->getdiv8();
+   $description1 = $projetsController->getdescription1();
+   $description2 = $projetsController->getdescription2();
+   $description3 = $projetsController->getdescription3();
+   $description4 = $projetsController->getdescription4();   
+   $description5 = $projetsController->getdescription5();
+   $description6 = $projetsController->getdescription6();
+   $description7 = $projetsController->getdescription7();
+   $description8 = $projetsController->getdescription8();
+
+
+
+   require_once 'controller/homeController.php';
+   require_once 'models/navbarModels.php';
+   require_once 'controller/navbarController.php';
+   require_once 'models/projetsModels.php';
+   require_once 'controller/projetsController.php';
+
+
+
+   <div class="project-item">
+                    <?php $data_projet = $statement_projet->fetch(PDO::FETCH_ASSOC); ?>
+                    <h2><?= $data_projet['titre'] ?? 'NON DISPO' ?></h2>
+                    <div class="image-container">
+                        <img src="<?= $data_projet['image'] ?? 'NON DISPO' ?>" alt="image de ligne de code">
+                    </div>
+                    <p><?= $data_projet['description'] ?? 'NON DISPO' ?></p>
+                    <button><?= $data_projet['bouton'] ?? 'NON DISPO' ?> </button>
+                </div>
+                
+                <div class="project-item">
+                    <?php $data_projet = $statement_projet->fetch(PDO::FETCH_ASSOC); ?>
+                    <h2> <?= $data_projet['titre'] ?? 'NON DISPO' ?></h2>
+                    <div class="image-container">
+                        <img src="<?= $data_projet['image'] ?? 'NON DISPO' ?>" alt="image de cinema">
+                    </div>
+                    <p><?= $data_projet['description'] ?? 'NON DISPO' ?></p>
+                    <button><?= $data_projet['bouton'] ?? 'NON DISPO' ?> </button>
+                </div>
+
+                <div class="project-item">
+                    <?php $data_projet = $statement_projet->fetch(PDO::FETCH_ASSOC); ?>
+                    <h2> <?= $data_projet['titre'] ?? 'NON DISPO' ?>  </h2>
+                    <div class="image-container">
+                        <img src="photo/illustrator.jpeg" alt="image du logiciel illustrator">
+                    </div>
+                    <p>formation sur illustrator</p>
+                    <button> <?= $bouton3 ?> </button>
+                </div>
+
+                <div class="project-item">
+                    <h2> <?= $div4 ?> </h2>
+                    <div class="image-container">
+                        <img src="photo/photomontage.jpg" alt="image du logiciel phautoshop">
+                    </div>
+                    <p>formation sur Photoshop</p>
+                    <button> <?= $bouton4 ?> </button>
+                </div>
+
+                <div class="project-item">
+                    <h2> <?= $div5 ?> </h2>
+                    <div class="image-container">
+                        <img src="photo/bilangue.png" alt="image du drapeau de l'Angleterre et de l'Espage">
+                    </div>
+                    <p>Anglais, Espagnol</p>
+                    <button> <?= $bouton5 ?> </button>
+                </div>
+
+                <div class="project-item">
+                    <h2> <?= $div6 ?> </h2>
+                    <div class="image-container">
+                        <img src="photo/gestion-de-projets.jpg" alt="illustration d'une gestio de projet">
+                    </div>
+                    <p>Experience en gestion de projets</p>
+                    <button> <?= $bouton6 ?> </button>
+                </div>
+
+                <div class="project-item">
+                    <h2> <?= $div7 ?> </h2>
+                    <div class="image-container">
+                        <img src="photo/ergonimie.jpg" alt="image illustrant de l'ergonomie">
+                    </div>
+                    <p>Mes projets en ergonomie et accessibiliter</p>
+                    <button> <?= $bouton7 ?> </button>
+                </div>
+
+                <div class="project-item">
+                    <h2> <?= $div8 ?> </h2>
+                    <div class="image-container">
+                        <img src="photo/strategie.png" alt="image de strategie de communication">
+                    </div>
+                    <p>formation dans la strategie de communication.</p>
+                    <button> <?= $bouton8 ?> </button>
+                </div>
