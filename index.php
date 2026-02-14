@@ -270,7 +270,9 @@ $data_about = $statement_about->fetch(PDO::FETCH_ASSOC);
     });
   })();
 
-  /* ========= 3) ELECTRIC BORDER (Mes Réalisations) ========= */
+  /* ========= 3) ELECTRIC BORDER (Mes Réalisations)
+     ✅ plus lent en normal + accélère au hover
+  ========= */
   (() => {
     const els = document.querySelectorAll(".electric-border");
     if (!els.length) return;
@@ -290,7 +292,20 @@ $data_about = $statement_about->fetch(PDO::FETCH_ASSOC);
       let raf = null;
 
       const color = [56, 87, 26]; // #38571a
-      const speed = 1.0;
+
+      // ✅ vitesses (normal + hover)
+      const baseSpeed = 0.55;     // plus lent en temps normal
+      const hoverSpeed = 1.8;     // accélère au survol
+      let targetSpeed = baseSpeed;
+      let currentSpeed = baseSpeed;
+
+      // transition douce
+      const lerp = (a,b,t)=> a + (b-a)*t;
+
+      // ✅ hover handlers
+      el.addEventListener("mouseenter", () => { targetSpeed = hoverSpeed; });
+      el.addEventListener("mouseleave", () => { targetSpeed = baseSpeed; });
+
       const chaos = 0.04;
       const thickness = 2;
 
@@ -351,7 +366,8 @@ $data_about = $statement_about->fetch(PDO::FETCH_ASSOC);
 
       let time = 0;
       function frame(now){
-        time += (speed * 0.016);
+        currentSpeed = lerp(currentSpeed, targetSpeed, 0.12);
+        time += (currentSpeed * 0.016);
 
         const pad = 60;
         const w = parseFloat(c.style.width);
